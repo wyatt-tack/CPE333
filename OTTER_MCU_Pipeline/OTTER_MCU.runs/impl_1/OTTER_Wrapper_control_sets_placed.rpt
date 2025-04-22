@@ -1,0 +1,90 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Fri Apr 18 18:29:24 2025
+| Host         : MSI running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file OTTER_Wrapper_control_sets_placed.rpt
+| Design       : OTTER_Wrapper
+| Device       : xc7a35ti
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    12 |
+|    Minimum number of control sets                        |    12 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    37 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    12 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     8 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             253 |          103 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             118 |           45 |
+| Yes          | No                    | No                     |              32 |           16 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------+------------------------------------------+-------------------------------------------+------------------+----------------+--------------+
+|         Clock Signal        |               Enable Signal              |              Set/Reset Signal             | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------------+------------------------------------------+-------------------------------------------+------------------+----------------+--------------+
+|  SSG_DISP/CathMod/s_clk_500 |                                          | SSG_DISP/CathMod/r_disp_digit[0]_i_1_n_0  |                1 |              2 |         2.00 |
+|  SSG_DISP/CathMod/s_clk_500 |                                          | SSG_DISP/CathMod/r_disp_digit[0]          |                1 |              2 |         2.00 |
+|  CLK_IBUF_BUFG              |                                          |                                           |                2 |              2 |         1.00 |
+|  SSG_DISP/CathMod/s_clk_500 |                                          |                                           |                4 |              9 |         2.25 |
+|  clk_50_BUFG                | OTTER_MCU/DM_packed_reg[result][6]_0[0]  |                                           |                6 |             16 |         2.67 |
+|  clk_50_BUFG                | OTTER_MCU/E[0]                           |                                           |               10 |             16 |         1.60 |
+|  CLK_IBUF_BUFG              |                                          | SSG_DISP/CathMod/clear                    |                5 |             20 |         4.00 |
+|  clk_50_BUFG                |                                          | BTNC_IBUF                                 |                8 |             30 |         3.75 |
+|  clk_50_BUFG                |                                          | OTTER_MCU/Memory/DEC_packed_reg[PC][15]_2 |               13 |             32 |         2.46 |
+|  clk_50_BUFG                |                                          | OTTER_MCU/Memory/DEC_packed_reg[PC][15]_1 |               17 |             32 |         1.88 |
+| ~clk_50_BUFG                | OTTER_MCU/WB_packed_reg[RF_WE][0]__0_n_0 |                                           |               11 |             88 |         8.00 |
+|  clk_50_BUFG                |                                          |                                           |               97 |            280 |         2.89 |
++-----------------------------+------------------------------------------+-------------------------------------------+------------------+----------------+--------------+
+
+

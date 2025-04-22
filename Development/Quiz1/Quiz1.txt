@@ -1,0 +1,79 @@
+1) a[10]=b[10]+10
+ASSEMBLY:	
+	
+	lw x12,40(x11) #must be 40, since words are 4 bytes
+	addi x12,x12,10
+	sw x12,40(x10)
+
+2) 	
+PSUEDO-C:
+	int x=0, sum=0;
+	int a[20]={1,6,6,7,7,8,8,9,10,...} //initialize this array to some random numbers
+	while (x<10){
+      		sum=sum+a[x];
+      		x++;}
+
+ASSEMBLY:
+	.data
+	a: .word 1,6,6,7,7,8,8,9,10, ...
+	.text
+  Main:	la x8,a		#adress a in x8
+	add x10,x0,x0 	#x = 0
+	add x11,x0,x0	#sum=0
+	addi x12,x0,10	#x12 = 10 for comp
+  loop:	bge x10, x12, return
+	slli x13, x10,2 	#mult x by 4 for address words
+	add x14, x13,x8	 	#x14 is address a[x]
+	lw x15,0(x14) 		#x15 is data a[x]
+	add x11,x11,x15 	#sum+=a[x]
+	addi x10,x10,1		#loop x++
+	j loop
+	return:
+
+3) 
+PSUEDO-C:
+int a[20]={1,6,6,7,7,8,8,9,10,...} //initialize this array to some random numbers
+int func (int n, int &a){
+       //we pass as an input parameter the address of the first element on the array 
+       int x=0, sum=0;
+       while (x<n){
+            sum=sum+a[x];
+            x++;
+       }
+       return sum;
+}
+
+ASSEMBLY:	
+	.data
+	arr: .word 1,6,6,7,7,8,8,9,10, ...
+	.text
+	addi a1, x0, 10	#load arguments a1=n, a2=&a
+	la a2, arr
+	call func:	#call function
+return:	j return	#program terminator
+func:	addi sp,sp,-16	#input a1 as n, a2 as address for a, get a0 as sum
+	sw t1, 12(sp)	#push used temporaries to stack
+	sw t2, 8(sp)
+	sw t3, 4(sp)
+	sw t4, 0(sp)
+	add t1,x0,x0 		#x = 0
+	add a0,x0,x0		#sum=0
+loop:	bge t1, a1, end		#loop until x >= n
+	slli t2, t1, 2 		#t2 is 4xindex (byte offset)
+	add t3, t2, a2		#t3 is address a[x]
+	lw t4,0(t3) 		#t4 is data a[x]
+	add a0,a0,t4 		#sum+=a[x]
+	addi t1,t1,1		#loop x++
+	j loop
+	end:
+	lw t4, 0(sp)	#pop used from stack
+	lw t3, 4(sp)
+	lw t2, 8(sp)
+	lw t1, 12(sp)	
+	addi sp,sp,16	#move stack pointer
+	ret			#return function call
+
+
+
+
+
