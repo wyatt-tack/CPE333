@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35ticpg236-1L" LaunchTime="1745026022">
-  <File Type="ROUTE-PWR" Name="OTTER_Wrapper_power_routed.rpt"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35ticpg236-1L" LaunchTime="1746686125">
   <File Type="PA-TCL" Name="OTTER_Wrapper.tcl"/>
-  <File Type="ROUTE-PWR-SUM" Name="OTTER_Wrapper_power_summary_routed.pb"/>
-  <File Type="OPT-RQA-PB" Name="OTTER_Wrapper_rqa_opted.pb"/>
   <File Type="REPORTS-TCL" Name="OTTER_Wrapper_reports.tcl"/>
   <File Type="INIT-TIMING" Name="OTTER_Wrapper_timing_summary_init.rpt"/>
   <File Type="OPT-DCP" Name="OTTER_Wrapper_opt.dcp"/>
@@ -11,6 +8,7 @@
   <File Type="OPT-METHODOLOGY-DRC" Name="OTTER_Wrapper_methodology_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="OTTER_Wrapper.hwdef"/>
   <File Type="OPT-TIMING" Name="OTTER_Wrapper_timing_summary_opted.rpt"/>
+  <File Type="OPT-RQA-PB" Name="OTTER_Wrapper_rqa_opted.pb"/>
   <File Type="PWROPT-DCP" Name="OTTER_Wrapper_pwropt.dcp"/>
   <File Type="PWROPT-DRC" Name="OTTER_Wrapper_drc_pwropted.rpt"/>
   <File Type="PWROPT-TIMING" Name="OTTER_Wrapper_timing_summary_pwropted.rpt"/>
@@ -22,16 +20,12 @@
   <File Type="PLACE-CTRL" Name="OTTER_Wrapper_control_sets_placed.rpt"/>
   <File Type="PLACE-SIMILARITY" Name="OTTER_Wrapper_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="OTTER_Wrapper_incremental_reuse_pre_placed.rpt"/>
-  <File Type="BG-BIN" Name="OTTER_Wrapper.bin"/>
   <File Type="PLACE-TIMING" Name="OTTER_Wrapper_timing_summary_placed.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="OTTER_Wrapper_power_routed.rpx"/>
   <File Type="PLACE-RQA-PB" Name="OTTER_Wrapper_rqa_placed.pb"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="OTTER_Wrapper_postplace_pwropt.dcp"/>
-  <File Type="BITSTR-MSK" Name="OTTER_Wrapper.msk"/>
   <File Type="POSTPLACE-PWROPT-TIMING" Name="OTTER_Wrapper_timing_summary_postplace_pwropted.rpt"/>
   <File Type="PHYSOPT-DCP" Name="OTTER_Wrapper_physopt.dcp"/>
   <File Type="PHYSOPT-DRC" Name="OTTER_Wrapper_drc_physopted.rpt"/>
-  <File Type="BITSTR-RBT" Name="OTTER_Wrapper.rbt"/>
   <File Type="PHYSOPT-TIMING" Name="OTTER_Wrapper_timing_summary_physopted.rpt"/>
   <File Type="ROUTE-ERROR-DCP" Name="OTTER_Wrapper_routed_error.dcp"/>
   <File Type="ROUTE-DCP" Name="OTTER_Wrapper_routed.dcp"/>
@@ -42,7 +36,9 @@
   <File Type="ROUTE-METHODOLOGY-DRC" Name="OTTER_Wrapper_methodology_drc_routed.rpt"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="OTTER_Wrapper_methodology_drc_routed.rpx"/>
   <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="OTTER_Wrapper_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-RQS-PB" Name="OTTER_Wrapper_rqs_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="OTTER_Wrapper_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="OTTER_Wrapper_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="OTTER_Wrapper_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="OTTER_Wrapper_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="OTTER_Wrapper_route_status.pb"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="OTTER_Wrapper_timing_summary_routed.rpt"/>
@@ -53,15 +49,19 @@
   <File Type="ROUTE-BUS-SKEW" Name="OTTER_Wrapper_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="OTTER_Wrapper_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="OTTER_Wrapper_bus_skew_routed.rpx"/>
+  <File Type="ROUTE-RQS-PB" Name="OTTER_Wrapper_rqs_routed.pb"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="OTTER_Wrapper_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="OTTER_Wrapper_postroute_physopt_bb.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING" Name="OTTER_Wrapper_timing_summary_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="OTTER_Wrapper_timing_summary_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="OTTER_Wrapper_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="OTTER_Wrapper_bus_skew_postroute_physopted.rpt"/>
-  <File Type="BG-BIT" Name="OTTER_Wrapper.bit"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="OTTER_Wrapper_bus_skew_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="OTTER_Wrapper_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BG-BIT" Name="OTTER_Wrapper.bit"/>
+  <File Type="BG-BIN" Name="OTTER_Wrapper.bin"/>
+  <File Type="BITSTR-MSK" Name="OTTER_Wrapper.msk"/>
+  <File Type="BITSTR-RBT" Name="OTTER_Wrapper.rbt"/>
   <File Type="BITSTR-NKY" Name="OTTER_Wrapper.nky"/>
   <File Type="BITSTR-BMM" Name="OTTER_Wrapper_bd.bmm"/>
   <File Type="BITSTR-MMI" Name="OTTER_Wrapper.mmi"/>
@@ -128,6 +128,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/Hazard_Gen.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/IMMED_GEN.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -184,47 +191,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/Branch_Add_Gen.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/Branch_Cond_Gen.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/CSR.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/CU_DCDR.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/CU_FSM.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/Mux_3x8.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -252,6 +219,7 @@
       </FileInfo>
     </File>
     <Config>
+      <Option Name="TargetConstrsFile" Val="$PPRDIR/Basys3_constraints.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>

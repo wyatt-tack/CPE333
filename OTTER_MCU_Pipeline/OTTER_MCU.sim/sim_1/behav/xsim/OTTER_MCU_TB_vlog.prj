@@ -3,6 +3,7 @@ sv xil_defaultlib  \
 "../../../../OTTER_MCU.srcs/sources_1/new/ALU.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/Branch_DCDR.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/DECODER.sv" \
+"../../../../OTTER_MCU.srcs/sources_1/new/Hazard_Gen.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/IMMED_GEN.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/Mux_2x4.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/OTTER_MCU.sv" \

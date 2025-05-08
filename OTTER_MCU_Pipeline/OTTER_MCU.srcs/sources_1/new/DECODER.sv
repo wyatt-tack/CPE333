@@ -20,10 +20,11 @@ output logic [3:0] ALU_FUN,
 output logic DM_WE,
 output logic [1:0] DM_Size,
 output logic DM_Sign,
-output logic [1:0] RF_WE,
+output logic RF_WE,
 output logic [1:0] RF_SEL,
 output logic [4:0] RFW_Addr,
-output logic [3:0] op_code,
+output logic [4:0] RS1, RS2,
+output logic [6:0] op_code,
 output logic [2:0] func3,
 output logic RDEN1, RDEN2
     );
@@ -31,6 +32,8 @@ output logic RDEN1, RDEN2
 assign func3 = ir[14:12];
 assign op_code = ir[6:0];
 assign RFW_Addr = ir[11:7];
+assign RS1 = ir[19:15];
+assign RS2 = ir[24:20];
 assign DM_Size = ir[13:12];
 assign DM_Sign = ir[14];
 assign RDEN1 = 1'b1;

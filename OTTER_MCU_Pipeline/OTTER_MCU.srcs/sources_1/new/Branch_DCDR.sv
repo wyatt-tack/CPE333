@@ -59,6 +59,10 @@ always_comb begin
         if(func3 == 3'b000)PC_SEL = 2'b11;//if mret, branch to mepc 
         //if(int_taken == 1)PC_SEL = 3'b10;//if interupt branch to ISR (MTVEC)
     end
+    default
+    begin
+    PC_SEL = 2'b00;
+    end
     endcase
 end    
 

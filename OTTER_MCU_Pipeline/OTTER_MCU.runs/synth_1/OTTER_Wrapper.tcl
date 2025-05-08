@@ -56,6 +56,8 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 1
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35ticpg236-1L
 
@@ -78,6 +80,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/CathodeDriver.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/DECODER.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/Debouncer.sv
+  C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/Hazard_Gen.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/IMMED_GEN.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/Mux_2x4.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/OTTER_MCU.sv

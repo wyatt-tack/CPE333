@@ -34,6 +34,6 @@ RST = 1;
 INTR = 0;
 IOBUS_IN = 0;
 RST = 0;
-#1000000;    
+#1000000000;    
 end
 endmodule

@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company:
-// Engineer: J. Callenes, P. Hummel
+// Engineer: J. Callenes, P. Hummel, W. Tack
 //
 // Create Date: 01/27/2019 08:37:11 AM
 // Module Name: OTTER_mem
@@ -42,7 +42,7 @@
 // Revision 1.05 - changed MEM_WD to MEM_DIN2, changed default to save nothing
 // Revision 1.06 - removed typo in instantiation template
 // Revision 1.07 - remove unused wordAddr1 signal
-//
+// Revision 1.08 - add buffers out to align with timing for pipeline by W. Tack
 //////////////////////////////////////////////////////////////////////////////////
                                                                                                                              
   module Memory (
@@ -86,6 +86,19 @@
       if(MEM_RDEN2)
         ioBuffer <= IO_IN;
     end
+    logic [31:0] addr2BUFFER;
+    always_ff @(posedge MEM_CLK) begin
+      if(MEM_RDEN2)
+        addr2BUFFER <= MEM_ADDR2;
+    end
+    
+    
+    logic [31:0] memKeyBuffer;
+    always_ff @(posedge MEM_CLK) begin
+      if(MEM_RDEN2)
+        memKeyBuffer <= {MEM_SIGN,MEM_SIZE,byteOffset};
+    end
+    
     
     // BRAM requires all reads and writes to occur synchronously
     always_ff @(posedge MEM_CLK) begin
@@ -112,11 +125,12 @@
 
       if (MEM_RDEN2)                       // Read word from memory
         memReadWord <= memory[wordAddr2];
+        
     end
        
     // Change the data word into sized bytes and sign extend
     always_comb begin
-      case({MEM_SIGN,MEM_SIZE,byteOffset})
+      case(memKeyBuffer)
         5'b00011: memReadSized = {{24{memReadWord[31]}},memReadWord[31:24]};  // signed byte
         5'b00010: memReadSized = {{24{memReadWord[23]}},memReadWord[23:16]};
         5'b00001: memReadSized = {{24{memReadWord[15]}},memReadWord[15:8]};
@@ -143,16 +157,22 @@
  
     // Memory Mapped IO
     always_comb begin
-      if(MEM_ADDR2 >= 32'h00010000) begin  // external address range
-        IO_WR = MEM_WE2;                 // IO Write
+      //read after cc swap
+      if(addr2BUFFER >= 32'h00010000) begin  // external address range
         MEM_DOUT2 = ioBuffer;            // IO read from buffer
+      end
+      else begin
+        MEM_DOUT2 = memReadSized;   // output sized and sign extended data
+      end
+      //write on cc
+      if(MEM_ADDR2 >= 32'h00010000)begin
+        IO_WR = MEM_WE2;                 // IO Write
         weAddrValid = 0;                 // address beyond memory range
       end
       else begin
         IO_WR = 0;                  // not MMIO
-        MEM_DOUT2 = memReadSized;   // output sized and sign extended data
         weAddrValid = MEM_WE2;      // address in valid memory range
       end
     end
-        
+     
  endmodule
