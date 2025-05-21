@@ -2,14 +2,16 @@
 sv xil_defaultlib  \
 "../../../../OTTER_MCU.srcs/sources_1/new/ALU.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/Branch_DCDR.sv" \
+"../../../../OTTER_MCU.srcs/sources_1/new/CacheDM.sv" \
+"../../../../OTTER_MCU.srcs/sources_1/new/CacheFSM.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/DECODER.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/Hazard_Gen.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/IMMED_GEN.sv" \
+"../../../../OTTER_MCU.srcs/sources_1/new/Memory.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/Mux_2x4.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/OTTER_MCU.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/PC.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/RegFile.sv" \
-"../../../../OTTER_MCU.srcs/sources_1/new/otter_memory_v1_07.sv" \
 "../../../../OTTER_MCU.srcs/sim_1/new/OTTER_MCU_TB.sv" \
 
 # compile glbl module
