@@ -17,7 +17,7 @@ input [31:0] ir,
 output logic [1:0] srcA_SEL,
 output logic [1:0] srcB_SEL,
 output logic [3:0] ALU_FUN,
-output logic DM_WE,
+output logic DM_WE, DM_RE,
 output logic [1:0] DM_Size,
 output logic DM_Sign,
 output logic RF_WE,
@@ -46,6 +46,7 @@ always_comb begin
     srcB_SEL = 0;
     RF_SEL = 0; 
     DM_WE = 0;
+    DM_RE = 0;
     RF_WE = 0;
   //CSR Stuff for future interupt handling
   //CSR_WE = 0;
@@ -74,6 +75,7 @@ always_comb begin
         ALU_FUN = 4'b0000;
         srcA_SEL = 0;
         srcB_SEL = 1;
+        DM_RE = 1;
         RF_WE = 1;
         RF_SEL = 2;  
     end

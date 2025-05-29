@@ -56,8 +56,8 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 1
-set_param xicom.use_bs_reader 1
+set_param chipscope.maxJobs 2
+set_param synth.elaboration.rodinMoreOptions {rt::set_parameter dissolveMemorySizeLimit 524288}
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35ticpg236-1L
 
@@ -77,17 +77,20 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/ALU.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/BCD.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/Branch_DCDR.sv
+  C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/CacheDM.sv
+  C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/CacheFSM.sv
+  C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/CacheSA.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/CathodeDriver.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/DECODER.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/Debouncer.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/Hazard_Gen.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/IMMED_GEN.sv
+  C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/Memory.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/Mux_2x4.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/OTTER_MCU.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/PC.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/RegFile.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/SevSegDisp.sv
-  C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/otter_memory_v1_07.sv
   C:/Users/Wyatt/Documents/Vivado/OTTER_MCU_Pipeline/OTTER_MCU.srcs/sources_1/new/OTTER_Wrapper_v1_02.sv
 }
 OPTRACE "Adding files" END { }
@@ -108,7 +111,7 @@ read_checkpoint -auto_incremental -incremental C:/Users/Wyatt/Documents/Vivado/O
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top OTTER_Wrapper -part xc7a35ticpg236-1L
+synth_design -top OTTER_Wrapper -part xc7a35ticpg236-1L -incremental_mode quick
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"

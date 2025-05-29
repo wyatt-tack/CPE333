@@ -27,7 +27,7 @@ typedef struct packed{
     logic [1:0] srcA_SEL;
     logic [1:0] srcB_SEL;
     logic [3:0] ALU_FUN;
-    logic DM_WE;
+    logic DM_WE, DM_RE;
     logic [1:0] DM_Size;
     logic DM_Sign;
     logic RF_WE;
@@ -65,12 +65,12 @@ logic [31:0] result;
 logic [31:0] ir;
 logic memRDEN1;
     //DM stage defines
-    logic memRDEN2 = 1'b1;
+    //logic memRDEN2 = 1'b1;
     logic [31:0] mem_DM_Data;
 // Memory Memory (.MEM_CLK(CLK), .MEM_RDEN1(memRDEN1), .MEM_ADDR1(IF_packed.PC[15:2]), .MEM_DOUT1(ir),
 MemoryBase Memory (.MEM_CLK(CLK), .MEM_RDEN1(memRDEN1), .MEM_ADDR1(IF_packed.PC[15:2]), .MEM_DOUT1(ir), .PC_STALL(CACHE1_STALL),
 // ---------- Memory used in DM -----------------
-        .MEM_RDEN2(memRDEN2), .MEM_WE2(DM_packed.DM_WE), 
+        .MEM_RDEN2(DM_packed.DM_RE), .MEM_WE2(DM_packed.DM_WE), 
         .MEM_SIZE(DM_packed.DM_Size), .MEM_SIGN(DM_packed.DM_Sign), 
         .IO_IN(IOBUS_IN), .IO_WR(IOBUS_WR),  
         .MEM_DOUT2(mem_DM_Data), .MEM_DIN2(DM_packed.RS2), .MEM_ADDR2(DM_packed.result));    
@@ -84,6 +84,7 @@ end
                 .srcB_SEL(DEC_packed.srcB_SEL),
                 .ALU_FUN(DEC_packed.ALU_FUN),
                 .DM_WE(DEC_packed.DM_WE),
+                .DM_RE(DEC_packed.DM_RE),
                 .DM_Size(DEC_packed.DM_Size),
                 .DM_Sign(DEC_packed.DM_Sign),
                 .RF_WE(DEC_packed.RF_WE),
@@ -117,6 +118,7 @@ if(DEC_ALU_WE) begin
     ALU_packed.srcB_SEL <= DEC_packed.srcB_SEL;
     ALU_packed.ALU_FUN <= DEC_packed.ALU_FUN;
     ALU_packed.DM_WE <= (DEC_packed.DM_WE & HZ_DEC_DM_WE);
+    ALU_packed.DM_RE <= DEC_packed.DM_RE;
     ALU_packed.DM_Size <= DEC_packed.DM_Size;
     ALU_packed.DM_Sign <= DEC_packed.DM_Sign;
     ALU_packed.RF_WE <= (DEC_packed.RF_WE & HZ_DEC_RF_WE);

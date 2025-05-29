@@ -4,6 +4,7 @@ sv xil_defaultlib  \
 "../../../../OTTER_MCU.srcs/sources_1/new/Branch_DCDR.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/CacheDM.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/CacheFSM.sv" \
+"../../../../OTTER_MCU.srcs/sources_1/new/CacheSA.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/DECODER.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/Hazard_Gen.sv" \
 "../../../../OTTER_MCU.srcs/sources_1/new/IMMED_GEN.sv" \

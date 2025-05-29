@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35ticpg236-1L" LaunchTime="1746686125" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/OTTER_MCU.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a35ticpg236-1L" LaunchTime="1748508172" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/OTTER_MCU.dcp">
+  <File Type="PA-TCL" Name="OTTER_Wrapper.tcl"/>
   <File Type="REPORTS-TCL" Name="OTTER_Wrapper_reports.tcl"/>
+  <File Type="RDS-RDS" Name="OTTER_Wrapper.vds"/>
+  <File Type="RDS-PROPCONSTRS" Name="OTTER_Wrapper_drc_synth.rpt"/>
   <File Type="RDS-UTIL" Name="OTTER_Wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="OTTER_Wrapper_utilization_synth.pb"/>
-  <File Type="PA-TCL" Name="OTTER_Wrapper.tcl"/>
-  <File Type="RDS-RDS" Name="OTTER_Wrapper.vds"/>
   <File Type="RDS-DCP" Name="OTTER_Wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="OTTER_Wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="OTTER_Wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ALU.sv">
@@ -23,6 +26,27 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/Branch_DCDR.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/CacheDM.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/CacheFSM.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/CacheSA.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -64,6 +88,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/Memory.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/Mux_2x4.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -99,13 +130,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/otter_memory_v1_07.sv">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/OTTER_Wrapper_v1_02.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -113,9 +137,17 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/otter_memory_v1_07.sv">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/CSR.sv">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UserDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -161,6 +193,8 @@
   </FileSet>
   <Strategy Version="1" Minor="2">
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
-    <Step Id="synth_design"/>
+    <Step Id="synth_design">
+      <Option Id="IncrementalMode">3</Option>
+    </Step>
   </Strategy>
 </GenRun>

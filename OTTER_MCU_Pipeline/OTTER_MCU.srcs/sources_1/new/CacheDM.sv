@@ -4,15 +4,15 @@
 // Engineer: Wyatt Tack
 //
 // Create Date: 5/13/2025
-// Design Name: L1 Cache
+// Design Name: L1 Cache DM
 // Project Name: OTTER MCU
 // Target Devices: Basys 3 Board
-// Description: Direct Map Cache, used as L1 for memory mod
+// Description: Direct Map Cache, used as L1 for instruction
 //              
 //
 //////////////////////////////////////////////////////////////
 
-module Cache(
+module CacheDM(
 input [13:0] PC,
 input CLK,
 input update,
@@ -58,7 +58,7 @@ always_comb begin
     if(hit) rd = data[index][word_offset];
 end
 
-always_ff @(negedge CLK) begin
+always_ff @(posedge CLK) begin
     if(update) begin
         tags[index] <= PC[13:7];
         data[index][0] <= w0;

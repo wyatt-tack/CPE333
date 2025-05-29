@@ -18,6 +18,7 @@ input hit,
 input miss, 
 input CLK, 
 input RST, 
+input RW_en,
 output logic update, 
 output logic pc_stall
 );
@@ -44,7 +45,7 @@ always_comb begin
         if(hit) begin
             NS = ST_READ_CACHE;
         end
-        else if(miss) begin
+        else if(miss && RW_en) begin
             //pc_stall = 1'b1;
             NS = ST_READ_MEM;
         end
